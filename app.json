@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/discover/discover",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#87CEFF",
+    "navigationBarTitleText": "周末去哪玩",
+    "navigationBarTextStyle": "white",
+    "navigationBarTextFontSize": "24px"
+  },
+  "tabBar": {
+    "color": "#CFCFCF",
+    "backgroundColor": "#87CEFF",
+    "borderStyle": "white",
+    "selectedColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/bar_home_black.png",
+        "selectedIconPath": "image/bar_home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "iconPath": "image/bar_explore_black.png",
+        "selectedIconPath": "image/bar_explore.png",
+        "text": "游玩地图"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/bar_mine_black.png",
+        "selectedIconPath": "image/bar_mine.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

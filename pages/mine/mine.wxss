@@ -1,0 +1,52 @@
+.container {
+  background: #fff;
+  background-size: cover;
+}
+.user {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+}
+.login {
+  margin: 20px auto 0;
+  width: 100px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #000;
+} 
+.userinfo {
+  text-align: center;
+  font-size: 14px;
+}
+.userinfo-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.order {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+.tab-item {
+    flex: 1.0;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: -1px;
+}
+.tab-text {
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+.tab-text.active {
+    border-bottom: 2px solid #89CBE0;
+    color: #89CBE0;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
