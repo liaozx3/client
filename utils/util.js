@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-function getItem(url) {
+function getData(url) {
   return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
@@ -36,5 +36,5 @@ function getItem(url) {
 
 module.exports = {
   formatTime: formatTime,
-  getItem: getItem
+  getData: getData
 }

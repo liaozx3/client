@@ -1,2 +1,25 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<scroll-view class="item-detail" scroll-y="true">
+  <view class="item">
+    <view class="image-container">
+      <image src="{{item.pic}}" mode="scaleToFill" style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
+      </image>
+    </view>
+    <view class="item-info">
+      <text class="item-title">{{item.name}} </text>
+      <text class="item-slogan">{{item.slogan}} </text>
+      <text class="item-price">{{item.price}}</text>
+      <text class="item-place">{{item.time}} </text>
+      <text class="item-state">{{item.place}}</text>
+      <text class="item-description">{{item.description}}</text>
+      <text class="item-notice">{{item.notice}}</text>
+    </view>
+    <view class="seller-info">
+      <text class="seller-name">{{seller.name}}</text>
+      <text class="seller-telephone">{{seller.telephone}}</text>
+    </view>
+  </view>
+</scroll-view>
+<view class="summit">
+  <text class="price">{{item.price}}</text>
+  <button class="summit-button" bindtap="summitOrder">我要参加</button>
+</view>

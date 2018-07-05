@@ -19,6 +19,12 @@
     color: #89CBE0;
     font-weight: bold;
 }
-.hidden {
-    display: none;
+.item-info {
+  margin: auto
+}
+.item-info-0 {
+  font-size: 20px;
+}
+.item-info-1 {
+  font-size:15px;
 }

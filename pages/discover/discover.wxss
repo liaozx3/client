@@ -1,4 +1,27 @@
 #header {
-    display: fixed;
+    display: flex;
     border-bottom: 1px solid #eee;
+}
+.tab-item {
+    flex: 1.0;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: -1px;
+}
+.tab-text {
+    border: 1px solid #CFCFCF;
+    display: block;
+    padding: 10px;
+    margin: auto;
+}
+.tab-text.active {
+    border: 1px solid #CFCFCF;
+    border-bottom: 2px solid #89CBE0;
+    color: #89CBE0;
+    font-weight: bold;
+}
+#input-location {
+  margin: 5px;
+  border: 2px solid gray;
 }

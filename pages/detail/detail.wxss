@@ -1,1 +1,13 @@
-/* pages/detail/detail.wxss */
+.summit {
+  font-size: 15px;
+  position:fixed; 
+  bottom:0;
+}
+.price {
+  color: red;
+}
+.summit-button {
+  background-color: red;
+  color: white;
+  text-align: center;
+}

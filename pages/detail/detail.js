@@ -7,7 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {},
+    item: {
+      itemId: 0, name: 'item0', pic: "/image/activity_1.jpeg", price: 300, place: "大学城", state: "进行中"
+    },
+    seller: {
+
+    },
   },
 
   /**
@@ -17,7 +22,7 @@ Page({
     if (options === null || options.itemId === null) {
       return
     } else {
-      /*api.getItem(`${options.itemId}`)
+      /*api.get(`${options.itemId}`)
         .then(res => {
           that.setData({
             item: res.data.item
@@ -73,5 +78,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  summitOrder(e) {
+
+    wx.switchTab({
+      url: "/pages/mine/mine"
+    })
   }
 })

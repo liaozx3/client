@@ -1,1 +1,6 @@
-{}
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#87CEFF",
+  "navigationBarTitleText": "我要参加",
+  "navigationBarTextStyle": "white"
+}

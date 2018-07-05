@@ -1,14 +1,17 @@
 <view class="container">
   <view class="user">
     <button class="login" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登 录</button>
-    <block class="userinfo" wx:else>
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="userinfo" wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </view>
   </view>
   <view class="order">
     <view class="tab-item" wx:for="{{tabName}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="switchTab">
       <text class="tab-text {{currentTab==idx ? 'active' : ''}}">{{item}}</text>
+    </view>
+    <view class="order-item">
+      
     </view>
   </view>
 </view>

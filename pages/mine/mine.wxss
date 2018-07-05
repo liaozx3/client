@@ -2,13 +2,7 @@
   background: #fff;
   background-size: cover;
 }
-.user {
-  margin: auto;
-  width: 200px;
-  height: 100px;
-}
 .login {
-  margin: 20px auto 0;
   width: 100px;
   height: 36px;
   line-height: 36px;
@@ -16,21 +10,37 @@
   background: transparent;
   border: 1px solid #fff;
   color: #000;
-} 
+}
+.user {
+  width: 725rpx;
+  background: #ffffff;
+  padding: 30rpx 25rpx 30rpx 0;
+  margin: auto;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #dcdcdc;
+  box-shadow: 0 2px 5px #eeeeee;
+}
 .userinfo {
-  text-align: center;
+  text-align: left;
   font-size: 14px;
 }
 .userinfo-avatar {
-  width: 80px;
-  height: 80px;
+  display: inline-block;
+  margin: 10px 20px 0 20px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
+}
+.userinfo-nickname {
+  font-size: 20px;
+  color: #818A8F;
 }
 .order {
     display: flex;
     border-bottom: 1px solid #eee;
 }
 .tab-item {
+    width: 150px;
     flex: 1.0;
     text-align: center;
     font-size: 14px;
@@ -46,7 +56,4 @@
     border-bottom: 2px solid #89CBE0;
     color: #89CBE0;
     font-weight: bold;
-}
-.hidden {
-    display: none;
 }

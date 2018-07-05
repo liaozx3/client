@@ -8,7 +8,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     tabName: ['未完成订单', '已完成订单'],
-    currentTab: 0,
+    currentTab: 1,
+    orders: {},
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -37,6 +38,12 @@ Page({
         }
       })
     }
+    /*api.get(orders...)
+        .then(res => {
+          that.setData({
+            orders: res.data.item
+          })
+        })*/
   },
   getUserInfo: function (e) {
     console.log(e)

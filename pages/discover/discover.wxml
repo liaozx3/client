@@ -1,3 +1,11 @@
+<view id="header" class="tab">
+  <view class="tab-item" wx:for="{{tabName}}" wx:for-index="idx" data-idx="{{idx}}" bindtap="switchTab">
+    <text class="tab-text {{currentTab==idx ? 'active' : ''}}">{{item}}</text>
+  </view>
+</view>
+<view id="input-location">
+  <input></input>
+</view>
 <view>
-    <map></map>
+  <map longitude="113.23" latitude="23.16" scale="11"></map>
 </view>

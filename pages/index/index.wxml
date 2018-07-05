@@ -4,70 +4,37 @@
   </view>
 </view>
 
-<!-- 精选 -->
-<scroll-view class="special-item-container {{currentTab==0 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoad">
-  <block wx:for="{{specialList}}">
-    <view class="special-item">
-      <view class="image-container" data-item-id="{{item.itemId}}" bindtap="onItemClick">
-        <image src="{{item.pic}}"
-          mode="scaleToFill" class="special-image"
-          style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/3}}px">
-        </image>
-      </view>
-      <view class="special-item-info" bindtap="onItemClick">
-        <text class="special-item-title">{{item.name}}</text>
-      </view>
-    </view>
-  </block>
-</scroll-view>
+<swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="slideTab" style="height: {{systemInfo.windowHeight}}px;" >
+  <swiper-item wx:for="{{itemContainerList}}" wx:for-item="itemList">
+    <scroll-view class="item-container" scroll-y="true">
+      <block wx:for="{{itemList.list}}">
+        <view class="item">
+          <view class="image-container" data-item-id="{{item.itemId}}" bindtap="onItemClick">
+            <image src="{{item.pic}}"
+              mode="scaleToFill" class="special-image"
+              style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
+            </image>
+          </view>
+          <view class="item-info" bindtap="onItemClick">
+            <view class="item-info-0">
+              <text class="item-title">{{item.name}} </text>
+              <text class="item-price">{{item.price}}</text>
+            </view>
+            <view class="item-info-1">
+              <text class="item-title">{{item.place}} </text>
+              <text class="item-price">{{item.state}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>
 
-<!-- 潮玩 -->
-<scroll-view class="play-item-container {{currentTab==1 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoad">
-  <block wx:for="{{playList}}">
-    <view class="play-item">
-      <view class="image-container" data-item-id="{{item.itemId}}" bindtap="onItemClick">
-        <image src="{{item.pic}}"
-          mode="scaleToFill" class="play-image"
-          style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/3}}px">
-        </image>
-      </view>
-      <view class="play-item-info" bindtap="onItemClick">
-        <text class="play-item-title">{{item.name}}</text>
-      </view>
-    </view>
-  </block>
-</scroll-view>
 
-<!-- 情侣约会 -->
-<scroll-view class="dating-item-container {{currentTab==2 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoad">
-  <block wx:for="{{datingList}}">
-    <view class="dating-item">
-      <view class="image-container" data-item-id="{{item.itemId}}" bindtap="onItemClick">
-        <image src="{{item.pic}}"
-          mode="scaleToFill" class="dating-image"
-          style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/3}}px">
-        </image>
-      </view>
-      <view class="dating-item-info" bindtap="onItemClick">
-        <text class="dating-item-title">{{item.name}}</text>
-      </view>
-    </view>
-  </block>
-</scroll-view>
 
-<!-- 亲子体验 -->
-<scroll-view class="family-item-container {{currentTab==3 ? '' : 'hidden'}}" style="height: {{systemInfo.windowHeight}}px;" scroll-y="true" bindscrolltolower="pullUpLoad">
-  <block wx:for="{{familyList}}">
-    <view class="family-item">
-      <view class="image-container" data-item-id="{{item.itemId}}" bindtap="onItemClick">
-        <image src="{{item.pic}}"
-          mode="scaleToFill" class="family-image"
-          style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/3}}px">
-        </image>
-      </view>
-      <view class="family-item-info" bindtap="onItemClick">
-        <text class="family-item-title">{{item.name}}</text>
-      </view>
-    </view>
-  </block>
-</scroll-view>
+
+
+
+
+
