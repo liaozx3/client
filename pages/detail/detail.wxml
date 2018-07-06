@@ -5,21 +5,30 @@
       </image>
     </view>
     <view class="item-info">
-      <text class="item-title">{{item.name}} </text>
+      <text class="item-name">{{item.name}} </text>
       <text class="item-slogan">{{item.slogan}} </text>
-      <text class="item-price">{{item.price}}</text>
-      <text class="item-place">{{item.time}} </text>
-      <text class="item-state">{{item.place}}</text>
+      <text class="item-price">￥{{item.price}}</text>
+      <view class="time">
+        <image class="time-icon" src="/image/time.png"></image>
+        <text class="item-time">{{item.time}} </text>
+      </view>
+      <view class="place">
+        <image class="locate-icon" src="/image/location.png"></image>
+        <text class="item-place">{{item.place}}</text>
+      </view>
+      <text>活动详情</text>
       <text class="item-description">{{item.description}}</text>
+      <text>参加须知</text>
       <text class="item-notice">{{item.notice}}</text>
     </view>
+    <text>联系商家</text>
     <view class="seller-info">
-      <text class="seller-name">{{seller.name}}</text>
-      <text class="seller-telephone">{{seller.telephone}}</text>
+      <text class="seller-name">商户：{{seller.name}}</text>
+      <text class="seller-telephone">联系电话：{{seller.telephone}}</text>
     </view>
   </view>
 </scroll-view>
 <view class="summit">
-  <text class="price">{{item.price}}</text>
-  <button class="summit-button" bindtap="summitOrder">我要参加</button>
+  <text class="price" style="width:{{systemInfo.windowWidth/2}}px;">￥{{item.price}}</text>
+  <text class="summit-button" style="width:{{systemInfo.windowWidth/2}}px;" bindtap="summitOrder">我要参加</text>
 </view>

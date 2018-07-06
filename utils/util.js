@@ -14,11 +14,33 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-function getData(url) {
-  return new Promise(function (resolve, reject) {
+const host = 'localhost:9999'
+
+function getRequest(url) {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: host+url,
+      method: "GET",
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        resolve(res)
+      },
+      fail: function (res) {
+        reject(res)
+      }
+    })
+  })
+}
+
+function postRequest(url, data) {
+  return new Promise((resolve, reject) => {
     wx.request({
       url: url,
-      data: {},
+      method: "POST",
+      data: data,
       header: {
         'Content-Type': 'application/json'
       },
@@ -27,8 +49,8 @@ function getData(url) {
         resolve(res)
       },
       fail: function (res) {
-        reject(res)
         console.log("failed")
+        reject(res)
       }
     })
   })
@@ -36,5 +58,6 @@ function getData(url) {
 
 module.exports = {
   formatTime: formatTime,
-  getData: getData
+  getRequest: getRequest,
+  postRequest: postRequest,
 }

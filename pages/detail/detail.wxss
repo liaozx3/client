@@ -1,13 +1,42 @@
+text {
+  display: block;
+}
+.item-detail {
+  height: 800px;
+}
+.item-name {
+  font-size: 20px;
+  border-bottom: 1px solid #CFCFCF;
+}
+.item-price {
+  color: red;
+}
+.time, .place {
+  display: flex;
+}
+.locate-icon, .time-icon {
+  height:18px;
+  width: 18px;
+}
+.item-slogan, .item-description,.item-notice,.seller-info {
+  margin: 5px;
+  border: 1px solid #CFCFCF;
+}
 .summit {
-  font-size: 15px;
+  display: flex;
+  font-size: 20px;
   position:fixed; 
   bottom:0;
+  border: 1px solid #CFCFCF;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
 }
 .price {
   color: red;
 }
 .summit-button {
+  padding: 0;
   background-color: red;
   color: white;
-  text-align: center;
 }

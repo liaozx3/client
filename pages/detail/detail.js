@@ -7,11 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    systemInfo: {},
     item: {
-      itemId: 0, name: 'item0', pic: "/image/activity_1.jpeg", price: 300, place: "大学城", state: "进行中"
+      itemId: 0, name: '烧烤2天', pic: "/image/activity_1.jpeg", slogan: "鬼才去", price: 300, time: "2018", place: "大学城", description: "描述", notice: "注意"
     },
     seller: {
-
+      name:"名字", telephone: 123456
     },
   },
 
@@ -19,6 +20,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    app.getSystemInfo(function (res) {
+      that.setData({
+        systemInfo: res,
+      })
+    })
     if (options === null || options.itemId === null) {
       return
     } else {
@@ -30,57 +37,10 @@ Page({
         })*/
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   summitOrder(e) {
-
+    /*
+    api.postRequest()
+     */
     wx.switchTab({
       url: "/pages/mine/mine"
     })

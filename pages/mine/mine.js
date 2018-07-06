@@ -4,14 +4,25 @@ const app = getApp()
 
 Page({
   data: {
+    systemInfo: {},
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     tabName: ['未完成订单', '已完成订单'],
     currentTab: 1,
-    orders: {},
+    unfinishedOrderList: [],
+    orderList: [
+      { itemId: 0, name: '烧烤2天', price: 300, time: "2018", place: "大学城", telephone: 123, code: "123" },
+      { itemId: 0, name: '烧烤2天', price: 300, time: "2018", place: "大学城", telephone: 123, code: "123" },
+    ],
   },
   onLoad: function () {
+    var that = this
+    app.getSystemInfo(function (res) {
+      that.setData({
+        systemInfo: res,
+      })
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

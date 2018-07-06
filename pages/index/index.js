@@ -7,23 +7,21 @@ Page({
   data: {
     systemInfo: {},
     tabName: ['精选', '潮玩', '情侣约会', '亲子体验'],
-    itemContainerList: [
-      { list: [
-        { itemId: 0, name: 'item0', pic: "/image/activity_1.jpeg", price: 300, place: "大学城", state: "进行中"},
-        { itemId: 1, name: 'item1', pic: "/image/activity_1.jpeg", price: 300,  },
-      ]}, 
-      { list: [
-        { itemId: 0, name: 'item2', pic: "/image/activity_1.jpeg", price: 300,  },
-        { itemId: 1, name: 'item3', pic: "/image/activity_1.jpeg", price: 300,  },
-      ]}, 
-      { list: [
-        { itemId: 0, name: 'item4', pic: "/image/activity_1.jpeg", price: 300,  },
-        { itemId: 1, name: 'item5', pic: "/image/activity_1.jpeg", price: 300,  },
-      ]}, 
-      { list: [
-        { itemId: 0, name: 'item6', pic: "/image/activity_1.jpeg", price: 300,  },
-        { itemId: 1, name: 'item7', pic: "/image/activity_1.jpeg", price: 300,  },
-      ]}
+    specialList: [
+      { itemId: 0, name: '南沙天后庙', pic: "/image/activity_1.jpeg", price: 300, place: "广州大学城", state: "进行中"},
+      { itemId: 1, name: 'item1', pic: "/image/activity_1.jpeg", price: 300,  },
+    ], 
+    playList: [
+      { itemId: 0, name: 'item2', pic: "/image/activity_1.jpeg", price: 300,  },
+      { itemId: 1, name: 'item3', pic: "/image/activity_1.jpeg", price: 300,  },
+    ], 
+    datingList: [
+      { itemId: 0, name: 'item4', pic: "/image/activity_1.jpeg", price: 300,  },
+      { itemId: 1, name: 'item5', pic: "/image/activity_1.jpeg", price: 300,  },
+    ], 
+    familyList: [
+      { itemId: 0, name: 'item6', pic: "/image/activity_1.jpeg", price: 300,  },
+      { itemId: 1, name: 'item7', pic: "/image/activity_1.jpeg", price: 300,  },
     ],
     currentTab: 0,
     
@@ -35,6 +33,13 @@ Page({
         systemInfo: res,
       })
     })
+    // 获取itemList
+    // api.getRequest('/activity/')
+    //   .then(res => {
+    //     that.setData({
+    //       specialList: this.data.list.concat(res.data),
+    //     })
+    //   })
   },
   // 切换 tab
   switchTab(e) {
