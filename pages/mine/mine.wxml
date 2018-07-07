@@ -14,23 +14,23 @@
   <view class="order-container">
     <scroll-view class="unfinished-order-list {{currentTab==0 ? '' : 'hidden'}}">
       <view class="order-item" wx:for="{{unfinishedOrderList}}">
-        <text class="item-name">{{item.name}} </text>
-        <text class="item-place">集合地点：{{item.place}}</text>
-        <text class="item-time">时间：{{item.time}} </text>
-        <text class="item-telephone">联系电话：{{item.telephone}}</text>
+        <text class="item-name">{{item.Name}} </text>
+        <text class="item-place">集合地点：{{item.Place}}</text>
+        <text class="item-time">时间：{{item.Time}} </text>
+        <text class="item-telephone">联系电话：{{item.Telephone}}</text>
       </view>
     </scroll-view>
     <scroll-view class="order-list {{currentTab==1 ? '' : 'hidden'}}">
       <view class="order-item" style="width:{{systemInfo.windowWidth}}px;" wx:for="{{orderList}}">
         <view class="info-0" style="width:{{systemInfo.windowWidth*0.7}}px;">
-          <text class="item-name">{{item.name}} </text>
-          <text class="item-place">集合地点：{{item.place}}</text>
-          <text class="item-time">时间：{{item.time}} </text>
-          <text class="item-telephone">联系电话：{{item.telephone}}</text>
+          <text class="item-name">{{item.Name}} </text>
+          <text class="item-place">集合地点：{{item.Place}}</text>
+          <text class="item-time">时间：{{item.Time}} </text>
+          <text class="item-telephone">联系电话：{{item.Telephone}}</text>
         </view>
         <view class="info-1" style="width:{{systemInfo.windowWidth*0.3}}px;">
           <text class="code">消费码</text>
-          <text class="item-code">{{item.code}}</text>
+          <text class="item-code">{{item.Code}}</text>
         </view>
       </view>
     </scroll-view>

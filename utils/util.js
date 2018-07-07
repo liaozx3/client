@@ -14,9 +14,10 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const host = 'localhost:9999'
+const host = 'http://118.89.35.145:9991/api/'
 
 function getRequest(url) {
+  console.log(host + url)
   return new Promise((resolve, reject) => {
     wx.request({
       url: host+url,
@@ -26,9 +27,11 @@ function getRequest(url) {
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.log('get succeed')
         resolve(res)
       },
       fail: function (res) {
+        console.log('get succeed')
         reject(res)
       }
     })
@@ -36,20 +39,20 @@ function getRequest(url) {
 }
 
 function postRequest(url, data) {
+  console.log(JSON.stringify(data))
   return new Promise((resolve, reject) => {
     wx.request({
-      url: url,
+      url: host + url,
       method: "POST",
-      data: data,
-      header: {
-        'Content-Type': 'application/json'
-      },
+      dataType: "JSON",
+      header: { "content-type": "application/x-www-form-urlencoded" },
+      data: JSON.stringify(data),
       success: function (res) {
-        console.log("success")
+        console.log('post succeed')
         resolve(res)
       },
       fail: function (res) {
-        console.log("failed")
+        console.log('post failed')
         reject(res)
       }
     })

@@ -7,22 +7,22 @@
   <!--精选-->
   <swiper-item>
     <scroll-view class="item-container {{currentTab==0 ? '' : 'hidden'}}" scroll-y="true">
-      <block wx:for="{{specialList}}">
-        <view class="item" bindtap="onItemClick">
-          <image class="item-image" src="{{item.pic}}"
+      <block wx:for="{{specialList}}" wx:for-index="idx">
+        <view class="item" bindtap="onItemClick" id="{{item.Id}}" data-index="{{idx}}">
+          <image class="item-image" src="{{imgUrl[idx%6]}}"
             mode="scaleToFill" class="special-image"
             style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
           </image>
           <view class="item-info">
             <view class="item-info-0">
-              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.name}} </text>
-              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.price}}</text>
+              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.Name}} </text>
+              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.Price}}</text>
             </view>
             <view class="item-info-1">
               <image class="locate-icon" src="/image/location.png"></image>
-              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.place}} </text>
+              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.Place}} </text>
               <image class="time-icon" src="/image/time.png"></image>
-              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.state}}</text>
+              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.State}}</text>
             </view>
           </view>
         </view>
@@ -32,22 +32,22 @@
   <!--潮玩-->
   <swiper-item>
     <scroll-view class="item-container {{currentTab==0 ? '' : 'hidden'}}" scroll-y="true">
-      <block wx:for="{{playList}}">
+      <block wx:for="{{playList}}" wx:for-index="idx">
         <view class="item" bindtap="onItemClick">
-          <image class="item-image" src="{{item.pic}}"
+          <image class="item-image" src="{{imgUrl[idx%6]}}"
             mode="scaleToFill" class="special-image"
             style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
           </image>
           <view class="item-info">
             <view class="item-info-0">
-              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.name}} </text>
-              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.price}}</text>
+              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.Name}} </text>
+              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.Price}}</text>
             </view>
             <view class="item-info-1">
               <image class="locate-icon" src="/image/location.png"></image>
-              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.place}} </text>
+              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.Place}} </text>
               <image class="time-icon" src="/image/time.png"></image>
-              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.state}}</text>
+              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.State}}</text>
             </view>
           </view>
         </view>
@@ -57,22 +57,22 @@
   <!--情侣约会-->
   <swiper-item>
     <scroll-view class="item-container {{currentTab==0 ? '' : 'hidden'}}" scroll-y="true">
-      <block wx:for="{{datingList}}">
+      <block wx:for="{{datingList}}" wx:for-index="idx">
         <view class="item" bindtap="onItemClick">
-          <image class="item-image" src="{{item.pic}}"
+          <image class="item-image" src="{{imgUrl[idx%6]}}"
             mode="scaleToFill" class="special-image"
             style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
           </image>
           <view class="item-info">
             <view class="item-info-0">
-              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.name}} </text>
-              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.price}}</text>
+              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.Name}} </text>
+              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.Price}}</text>
             </view>
             <view class="item-info-1">
               <image class="locate-icon" src="/image/location.png"></image>
-              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.place}} </text>
+              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.Place}} </text>
               <image class="time-icon" src="/image/time.png"></image>
-              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.state}}</text>
+              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.State}}</text>
             </view>
           </view>
         </view>
@@ -82,22 +82,22 @@
   <!--亲子体验-->
   <swiper-item>
     <scroll-view class="item-container {{currentTab==0 ? '' : 'hidden'}}" scroll-y="true">
-      <block wx:for="{{familyList}}">
+      <block wx:for="{{familyList}}" wx:for-index="idx">
         <view class="item" bindtap="onItemClick">
-          <image class="item-image" src="{{item.pic}}"
+          <image class="item-image" src="{{imgUrl[idx%6]}}"
             mode="scaleToFill" class="special-image"
             style="width:{{systemInfo.windowWidth}}px;height:{{systemInfo.windowHeight/2.5}}px">
           </image>
           <view class="item-info">
             <view class="item-info-0">
-              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.name}} </text>
-              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.price}}</text>
+              <text class="item-name" style="width:{{systemInfo.windowWidth*0.84}}px;">{{item.Name}} </text>
+              <text class="item-price" style="width:{{systemInfo.windowWidth*0.16}}px;">￥{{item.Price}}</text>
             </view>
             <view class="item-info-1">
               <image class="locate-icon" src="/image/location.png"></image>
-              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.place}} </text>
+              <text class="item-place" style="width:{{systemInfo.windowWidth*0.6}}px;">集合地：{{item.Place}} </text>
               <image class="time-icon" src="/image/time.png"></image>
-              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.state}}</text>
+              <text class="item-state" style="width:{{systemInfo.windowWidth*0.2}}px;">{{item.State}}</text>
             </view>
           </view>
         </view>

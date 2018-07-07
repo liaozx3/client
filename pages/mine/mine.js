@@ -1,20 +1,17 @@
-//index.js
-//获取应用实例
 const app = getApp()
+const api = require('../../utils/util.js')
 
 Page({
   data: {
     systemInfo: {},
+    userId: null,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     tabName: ['未完成订单', '已完成订单'],
     currentTab: 1,
     unfinishedOrderList: [],
-    orderList: [
-      { itemId: 0, name: '烧烤2天', price: 300, time: "2018", place: "大学城", telephone: 123, code: "123" },
-      { itemId: 0, name: '烧烤2天', price: 300, time: "2018", place: "大学城", telephone: 123, code: "123" },
-    ],
+    orderList: [],
   },
   onLoad: function () {
     var that = this
@@ -23,6 +20,8 @@ Page({
         systemInfo: res,
       })
     })
+
+    // getUserInfo
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -49,20 +48,61 @@ Page({
         }
       })
     }
-    /*api.get(orders...)
-        .then(res => {
-          that.setData({
-            orders: res.data.item
+    if (app.globalData.userInfo) {
+      // login and get orders
+      api.postRequest('user/login', { Name: app.globalData.userInfo.nickName })
+      .then(function (res) {
+        that.setData({
+          userId: JSON.parse(res.data).Data.Id,
+        })
+      })
+      .then(function () {
+        app.globalData.userId = that.data.userId
+        api.getRequest('order/user/' + that.data.userId)
+          .then(function (res) {
+            that.setData({
+              orderList: res.data.Data,
+            })
           })
-        })*/
+      })
+    }
+  },
+  onShow: function() {
+    var that = this
+    api.getRequest('order/user/' + that.data.userId)
+      .then(function (res) {
+        that.setData({
+          orderList: res.data.Data,
+        })
+      })
   },
   getUserInfo: function (e) {
-    console.log(e)
+    var that = this
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    // register and login and get orders
+    api.postRequest('user/register', { Name: app.globalData.userInfo.nickName })
+      .then(function(res) {
+        api.postRequest('user/login', { Name: app.globalData.userInfo.nickName })
+          .then(function (res) {
+            that.setData({
+              userId: JSON.parse(res.data).Data.Id,
+            })
+          })
+          .then(function () {
+            app.globalData.userId = that.data.userId
+            api.getRequest('order/user/' + that.data.userId)
+              .then(function (res) {
+                that.setData({
+                  orderList: res.data.Data,
+                })
+              })
+          })
+      })
+      
   },
   // 切换 tab
   switchTab(e) {

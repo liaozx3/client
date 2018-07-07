@@ -7,24 +7,16 @@ Page({
   data: {
     systemInfo: {},
     tabName: ['精选', '潮玩', '情侣约会', '亲子体验'],
-    specialList: [
-      { itemId: 0, name: '南沙天后庙', pic: "/image/activity_1.jpeg", price: 300, place: "广州大学城", state: "进行中"},
-      { itemId: 1, name: 'item1', pic: "/image/activity_1.jpeg", price: 300,  },
-    ], 
-    playList: [
-      { itemId: 0, name: 'item2', pic: "/image/activity_1.jpeg", price: 300,  },
-      { itemId: 1, name: 'item3', pic: "/image/activity_1.jpeg", price: 300,  },
-    ], 
-    datingList: [
-      { itemId: 0, name: 'item4', pic: "/image/activity_1.jpeg", price: 300,  },
-      { itemId: 1, name: 'item5', pic: "/image/activity_1.jpeg", price: 300,  },
-    ], 
-    familyList: [
-      { itemId: 0, name: 'item6', pic: "/image/activity_1.jpeg", price: 300,  },
-      { itemId: 1, name: 'item7', pic: "/image/activity_1.jpeg", price: 300,  },
-    ],
+    specialList: [], 
+    playList: [], 
+    datingList: [], 
+    familyList: [],
     currentTab: 0,
-    
+    imgUrl: [
+      'http://118.89.35.145:9991/public/pic1.jpg', 'http://118.89.35.145:9991/public/pic2.jpg',
+      'http://118.89.35.145:9991/public/pic3.jpg', 'http://118.89.35.145:9991/public/pic4.jpg',
+      'http://118.89.35.145:9991/public/pic5.jpg', 'http://118.89.35.145:9991/public/pic6.jpg',
+    ]
   },
   onLoad: function () {
     var that = this
@@ -33,13 +25,16 @@ Page({
         systemInfo: res,
       })
     })
-    // 获取itemList
-    // api.getRequest('/activity/')
-    //   .then(res => {
-    //     that.setData({
-    //       specialList: this.data.list.concat(res.data),
-    //     })
-    //   })
+    //获取specialList
+    api.getRequest('activity/')
+      .then(res => {
+        that.setData({
+          specialList: res.data.Data,
+          datingList: res.data.Data,
+          familyList: res.data.Data,
+          playList: res.data.Data,
+        })
+      })
   },
   // 切换 tab
   switchTab(e) {
@@ -55,9 +50,10 @@ Page({
   },
   // 点击跳转详情页
   onItemClick(e) {
+    console.log(e)
     var targetUrl = "/pages/detail/detail"
-    if (e.currentTarget.dataset.itemId != null)
-      targetUrl = targetUrl + '?itemId=' + e.currentTarget.dataset.itemId
+    if (e.currentTarget.id != null)
+      targetUrl = targetUrl + "?Id=" + e.currentTarget.id + "&Index=" + e.currentTarget.dataset.index
     wx.navigateTo({
       url: targetUrl
     })

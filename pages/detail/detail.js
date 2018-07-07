@@ -2,45 +2,58 @@ const api = require('../../utils/util.js')
 const app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    index: null,
+    imgUrl: [
+      'http://118.89.35.145:9991/public/pic1.jpg', 'http://118.89.35.145:9991/public/pic2.jpg',
+      'http://118.89.35.145:9991/public/pic3.jpg', 'http://118.89.35.145:9991/public/pic4.jpg',
+      'http://118.89.35.145:9991/public/pic5.jpg', 'http://118.89.35.145:9991/public/pic6.jpg',
+    ],
     systemInfo: {},
-    item: {
-      itemId: 0, name: '烧烤2天', pic: "/image/activity_1.jpeg", slogan: "鬼才去", price: 300, time: "2018", place: "大学城", description: "描述", notice: "注意"
-    },
-    seller: {
-      name:"名字", telephone: 123456
-    },
+    item: {},
+    seller: {},
+    order: {},
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    console.log(options)
     var that = this
+    that.setData({
+      index: options.Index,
+    })
     app.getSystemInfo(function (res) {
       that.setData({
         systemInfo: res,
       })
     })
-    if (options === null || options.itemId === null) {
+    if (options === null || options.Id === null) {
       return
     } else {
-      /*api.get(`${options.itemId}`)
+      api.getRequest('activity/' + options.Id)
         .then(res => {
+          var sellerId = res.data.Data.SellerId
           that.setData({
-            item: res.data.item
+            item: res.data.Data
           })
-        })*/
+          api.getRequest('seller/' + sellerId)
+            .then(res => {
+              that.setData({
+                seller: res.data.Data
+              })
+            })
+        })
     }
   },
   summitOrder(e) {
-    /*
-    api.postRequest()
-     */
+    if (app.globalData.userId) {
+      this.data.order.UserId = app.globalData.userId
+      this.data.order.SellerId = this.data.item.SellerId
+      this.data.order.State = 0
+      this.data.order.Code = "123"
+      this.data.order.Time = this.data.item.Time
+      this.data.order.Place = this.data.item.Place
+      api.postRequest('order/', this.data.order)
+    }
     wx.switchTab({
       url: "/pages/mine/mine"
     })

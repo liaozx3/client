@@ -47,6 +47,7 @@ App({
     }
   },
   globalData: {
+    userId: null,
     userInfo: null,
     systemInfo: null
   }
