@@ -16,7 +16,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log(options)
     var that = this
     that.setData({
       index: options.Index,
@@ -45,11 +44,12 @@ Page({
     }
   },
   summitOrder(e) {
+    console.log(app.globalData.userId)
     if (app.globalData.userId) {
       this.data.order.UserId = app.globalData.userId
       this.data.order.SellerId = this.data.item.SellerId
       this.data.order.State = 0
-      this.data.order.Code = "123"
+      this.data.order.Code = api.MathRand()
       this.data.order.Time = this.data.item.Time
       this.data.order.Place = this.data.item.Place
       api.postRequest('order/', this.data.order)

@@ -69,12 +69,14 @@ Page({
   },
   onShow: function() {
     var that = this
-    api.getRequest('order/user/' + that.data.userId)
-      .then(function (res) {
-        that.setData({
-          orderList: res.data.Data,
+    if (app.globalData.userId) {
+      api.getRequest('order/user/' + app.globalData.userId)
+        .then(function (res) {
+          that.setData({
+            orderList: res.data.Data,
+          })
         })
-      })
+    }
   },
   getUserInfo: function (e) {
     var that = this

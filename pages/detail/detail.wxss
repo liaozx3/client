@@ -2,7 +2,7 @@ text {
   display: block;
 }
 .item-detail {
-  height: 800px;
+  height: 650px;
 }
 .item-name {
   font-size: 20px;

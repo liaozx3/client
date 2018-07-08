@@ -39,7 +39,6 @@ function getRequest(url) {
 }
 
 function postRequest(url, data) {
-  console.log(JSON.stringify(data))
   return new Promise((resolve, reject) => {
     wx.request({
       url: host + url,
@@ -58,9 +57,17 @@ function postRequest(url, data) {
     })
   })
 }
+function MathRand() {
+  var Num = "";
+  for (var i = 0; i < 6; i++) {
+    Num += Math.floor(Math.random() * 10);
+  }
+  return Num;
+}
 
 module.exports = {
   formatTime: formatTime,
   getRequest: getRequest,
   postRequest: postRequest,
+  MathRand: MathRand,
 }

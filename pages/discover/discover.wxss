@@ -16,6 +16,7 @@
     margin: auto;
 }
 .tab-text.active {
+    height: 20px;
     border: 1px solid #CFCFCF;
     border-bottom: 2px solid #89CBE0;
     color: #89CBE0;
@@ -31,4 +32,9 @@
 }
 .page-body-button {
   margin-bottom: 30rpx;
+}
+button {
+  width: 100%;
+  position:fixed; 
+  bottom:0;
 }

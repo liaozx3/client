@@ -50,7 +50,6 @@ Page({
   },
   // 点击跳转详情页
   onItemClick(e) {
-    console.log(e)
     var targetUrl = "/pages/detail/detail"
     if (e.currentTarget.id != null)
       targetUrl = targetUrl + "?Id=" + e.currentTarget.id + "&Index=" + e.currentTarget.dataset.index
